@@ -53,11 +53,11 @@ class Invoker {
   }
 
   check (event) {
-    const code = this.seq[this.seqNumber].code
+    const key = this.seq[this.seqNumber].key
     const ctrl = this.seq[this.seqNumber].ctrl || false
 
     if (
-      event.code === code &&
+      event.key === key &&
       (event.ctrlKey || event.metaKey) === ctrl
     ) {
       return true

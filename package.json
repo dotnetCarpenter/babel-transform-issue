@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "poly": "npm run polyfill",
+    "polyfill": "cross-env NODE_ENV=development COMPILE_MODE=polyfill node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run polyfill -- --watch"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,7 @@
     "core-js": "^3.1.2",
     "cross-env": "^5.2.0",
     "laravel-mix": "^4.0.15",
+    "laravel-mix-polyfill": "^1.0.2",
     "regenerator-runtime": "^0.13.2",
     "vue-template-compiler": "^2.6.10"
   }

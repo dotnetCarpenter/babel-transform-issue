@@ -11,8 +11,23 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('index.js', 'dist')
-    .setPublicPath('dist')
+if (process.env.COMPILE_MODE === 'polyfill') {
+    require('laravel-mix-polyfill')
+
+    mix
+        .js('app.js', 'dist')
+        .polyfill({
+            enabled: true,
+            useBuiltIns: 'usage',
+            targets: '> 1%, not IE < 11',
+            corejs: 3,
+            debug: true
+        })
+        .setPublicPath('dist')
+} else {
+    mix.js('app.js', 'dist').setPublicPath('dist')
+}
+
 
 // Full API
 // mix.js(src, output);
