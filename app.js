@@ -1,4 +1,4 @@
-import { Commander, template as warningTemplate } from './save-warning'
+import { Commander, template as warningTemplate } from './save-warning.mjs'
 
 const commander = new Commander()
 
